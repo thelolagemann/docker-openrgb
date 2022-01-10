@@ -14,10 +14,12 @@ docker run --rm \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /config:/config \
   -e DISPLAY=unix$DISPLAY \
+  -p 6742:6742 \
   thelolagemann/openrgb:latest
 ```
 
 **Docker Compose**
+
 ```yaml
 version: "3.9"
 
@@ -30,6 +32,8 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY=unix$DISPLAY
+    ports:
+      - "6742:6742"
     privileged: true
 ```
 <sup>This container requires the privileged flag in order to be able to communicate with your hardware. </sup>

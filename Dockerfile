@@ -26,4 +26,4 @@ RUN ln -s /root/.config/OpenRGB /config
 COPY --from=builder /build/openrgb /usr/bin/openrgb
 
 ENTRYPOINT ["/bin/ash", "-l", "-c"]
-CMD ["openrgb"]
+CMD ["openrgb --gui --noautoconnect --server"]
